@@ -8,12 +8,19 @@ use App\Http\Controllers\Controller;
 
 class FormsController extends Controller
 {
-    //
-    public function ShowPageForms ()
+    // Menampilkan halaman form Akta Cerai
+    public function ShowPageForms()
     {
-        return view('forms.index');
+        return view('forms.index'); // Mengarahkan ke form Akta Cerai
     }
 
+    // Menampilkan halaman form Salinan Putusan/Penetapan (Salput)
+    // public function ShowPageFormsSalput()
+    // {
+    //     return view('forms.indexSalput'); // Mengarahkan ke form Salput
+    // }
+
+    // Menyimpan data dari form Akta Cerai
     public function store(Request $request)
     {
         // Validasi input form
@@ -23,7 +30,10 @@ class FormsController extends Controller
             'nama' => 'required|string|max:255',
             'alamat' => 'required|string|max:255',
             'nomor_telepon' => 'required|string|max:15',
-            'pihak' => 'required|in:penggugat,pemohon,tergugat,termohon',
+            'pihak' => 'required|in:penggugat,pemohon,tergugat,termohon,lainnya',
+            'nama_penggugat' => 'required|string|max:255',
+            'nama_tergugat' => 'required|string|max:255',
+            'nama_ketua_majelis' => 'required|string|max:255',
         ]);
 
         // Simpan data ke database
@@ -34,9 +44,19 @@ class FormsController extends Controller
             'alamat' => $request->input('alamat'),
             'nomor_telepon' => $request->input('nomor_telepon'),
             'pihak' => $request->input('pihak'),
+            'nama_penggugat' => $request->input('nama_penggugat'),
+            'nama_tergugat' => $request->input('nama_tergugat'),
+            'nama_ketua_majelis' => $request->input('nama_ketua_majelis'),
         ]);
 
-        // Redirect ke halaman yang diinginkan dengan pesan sukses
+        // Redirect ke halaman form dengan pesan sukses
         return redirect()->route('form.view')->with('success', 'Data perkara berhasil disimpan.');
+    }
+
+    // Menyimpan data dari form Salinan Putusan/Penetapan
+    public function storeSalput(Request $request)
+    {
+        // Tambahkan validasi dan logika penyimpanan yang sesuai dengan form Salput
+        // Sesuaikan dengan kolom yang dibutuhkan pada form Salput
     }
 }

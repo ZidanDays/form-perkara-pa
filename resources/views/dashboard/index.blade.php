@@ -22,7 +22,7 @@
         </div>
         <!-- [ breadcrumb ] end -->
         <!-- [ Main Content ] start -->
-        <div class="row">
+        {{-- <div class="row">
             <!-- table card-1 start -->
             <div class="col-md-12 col-xl-4">
                 <div class="card flat-card">
@@ -196,7 +196,7 @@
             <!-- Latest Customers start -->
 
             <!-- Latest Customers end -->
-        </div>
+        </div> --}}
         <!-- [ Main Content ] end -->
 
         <div class="col-md-15">
@@ -216,20 +216,49 @@
                                     <th>Alamat</th>
                                     <th>Nomor Telepon</th>
                                     <th>Pihak</th>
+                                    <th>Nama Penggugat/Pemohon</th>
+                                    <th>Nama Tergugat/Termohon</th>
+                                    <th>Ketua Majelis</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($perkaras as $perkara) <!-- Pastikan menggunakan $perkaras di sini -->
+                                @foreach($perkaras as $perkara)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td> <!-- Nomor urut berdasarkan loop -->
                                     <td>{{ $perkara->tanggal }}</td> <!-- Tanggal perkara -->
                                     <td>{{ $perkara->nomor_perkara }}</td> <!-- Nomor perkara -->
-                                    <td>{{ $perkara->nama }}</td> <!-- Nama pihak terkait -->
+                                    <td>{{ $perkara->nama }}</td> <!-- Nama pihak yang mengajukan -->
                                     <td>{{ $perkara->alamat }}</td> <!-- Alamat pihak -->
                                     <td>{{ $perkara->nomor_telepon }}</td> <!-- Nomor telepon pihak -->
                                     <td>{{ $perkara->pihak }}</td> <!-- Pihak terkait perkara -->
+                            
+                                    <!-- Kolom tambahan untuk nama penggugat, nama tergugat, dan nama ketua majelis -->
+                                    <td>{{ $perkara->nama_penggugat ?? '-' }}</td> <!-- Nama penggugat, jika ada -->
+                                    <td>{{ $perkara->nama_tergugat ?? '-' }}</td> <!-- Nama tergugat, jika ada -->
+                                    <td>{{ $perkara->nama_ketua_majelis ?? '-' }}</td> <!-- Nama ketua majelis, jika ada -->
+
+                                            <!-- Kolom Aksi -->
+        <td>
+            {{-- <!-- Tombol Edit -->
+            <a href="{{ route('perkara.edit', $perkara->id) }}" class="btn btn-sm btn-warning">Edit</a>
+
+            <!-- Tombol Delete -->
+            <form action="{{ route('perkara.destroy', $perkara->id) }}" method="POST" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Delete</button>
+            </form> --}}
+
+            <!-- Tombol Cetak Akta Cerai -->
+            <a href="{{ route('perkara.cetakAktaCerai', $perkara->id) }}" class="btn btn-sm btn-info">Cetak Akta Cerai</a>
+
+            <!-- Tombol Cetak Salinan Putusan -->
+            <a href="{{ route('perkara.cetakSalinanPutusan', $perkara->id) }}" class="btn btn-sm btn-success">Cetak Salinan Putusan</a>
+        </td>
                                 </tr>
-                                @endforeach
+                            @endforeach
+                            
                                 
                             </tbody>
                         </table>

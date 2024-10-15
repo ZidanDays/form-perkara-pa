@@ -19,6 +19,11 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route halaman forms
 Route::get('/forms', [FormsController::class, 'ShowPageForms'])->middleware('auth')->name('form.view');
 
+// Route::get('/forms-akta-cerai', [FormsController::class, 'ShowPageForms'])->middleware('auth')->name('form.view.aktacerai');
+
+// Route halaman forms
+// Route::get('/forms-salinan-putusan', [FormsController::class, 'ShowPageFormsSalput'])->middleware('auth')->name('form.view.salput');
+
 // Route create/add forms
 Route::post('/forms', [FormsController::class, 'store'])->name('form.store');
 
@@ -32,4 +37,13 @@ Route::post('/forms', [FormsController::class, 'store'])->name('form.store');
 Route::get('/dashboard', [DashboardController::class, 'create'])->name('dashboard')->middleware('auth');
 
 //pdf
-Route::get('/laporan', [PDFController::class, 'index']);
+Route::get('/formulir-akta-cerai/{id}', [PDFController::class, 'aktacerai'])->name('perkara.cetakAktaCerai');
+
+Route::get('/formulir-salinan-putusan/{id}', [PDFController::class, 'salput'])->name('perkara.cetakSalinanPutusan');
+
+
+
+// Route::get('/perkara/{id}/edit', [PerkaraController::class, 'edit'])->name('perkara.edit');
+// Route::delete('/perkara/{id}', [PerkaraController::class, 'destroy'])->name('perkara.destroy');
+// Route::get('/perkara/{id}/cetak-akta-cerai', [PerkaraController::class, 'cetakAktaCerai'])->name('perkara.cetakAktaCerai');
+// Route::get('/perkara/{id}/cetak-salput', [PerkaraController::class, 'cetakSalput'])->name('perkara.cetakSalput');

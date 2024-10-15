@@ -4,11 +4,16 @@
         <h3>FORMULIR PERMINTAAN AKTA CERAI</h3>
     </div>
 
+    @foreach ($perkara as $p)
+        
+
     <!-- Detail Section -->
     <div class="details">
         <p>Permintaan Akta Cerai</p>
-        <p>Tanggal        : ...........................................</p>
-        <p>Nomor Perkara  : ......................................</p>
+        {{-- <p>Tanggal        : ...........................................</p> --}}
+        <p>Tanggal: {{ $p->tanggal ? $p->tanggal : '-' }}</p>
+
+        <p>Nomor Perkara  : {{ $p->nomor_perkara ? $p->nomor_perkara : '-' }}</p>
     </div>
 
 
@@ -19,22 +24,22 @@
             <tr>
                 <td>Nama</td>
                 <td>:</td>
-                <td>..................................................</td>
+                <td>{{ $p->nama ? $p->nama : '-' }}</td>
             </tr>
             <tr>
                 <td>Alamat</td>
                 <td>:</td>
-                <td>.................................................</td>
+                <td>{{ $p->alamat ? $p->alamat : '-' }}</td>
             </tr>
             <tr>
                 <td>No. Telepon</td>
                 <td>:</td>
-                <td>.........................................</td>
+                <td>{{ $p->nomor_telepon ? $p->nomor_telepon : '-' }}</td>
             </tr>
             <tr>
                 <td>Sebagai Pihak</td>
                 <td>:</td>
-                <td>Penggugat/Pemohon/Tergugat/Termohon *(coret salah satu)</td>
+                <td>{{ $p->pihak ? $p->pihak : '-' }}</td>
             </tr>
         </table>
     </div>
@@ -70,11 +75,13 @@
 <br>
     <!-- Footer Section -->
     <div class="footer">
-        <p>Amurang, ...................................</p>
+        <p>Amurang, {{ $p->tanggal ? $p->tanggal : '-' }}</p>
         <br>
         <br>
         <br>
         <br>
-        <p>................................................</p>
+        <p>{{ $p->nama ? $p->nama : '-' }}</p>
     </div>
 </div>
+
+@endforeach
