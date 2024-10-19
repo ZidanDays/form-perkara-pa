@@ -10,11 +10,11 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Dashboard Analytics</h5>
+                            <h5 class="m-b-10">Dashboard Perkara</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Dashboard Analytics</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Dashboard Perkara</a></li>
                         </ul>
                     </div>
                 </div>
@@ -212,6 +212,7 @@
                                     <th>#</th>
                                     <th>Tanggal</th>
                                     <th>Nomor Perkara</th>
+                                    <th>Nomor Akta Cerai</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Nomor Telepon</th>
@@ -228,6 +229,7 @@
                                     <td>{{ $loop->iteration }}</td> <!-- Nomor urut berdasarkan loop -->
                                     <td>{{ $perkara->tanggal }}</td> <!-- Tanggal perkara -->
                                     <td>{{ $perkara->nomor_perkara }}</td> <!-- Nomor perkara -->
+                                    <td>{{ $perkara->nomor_akta }}</td> <!-- Nomor perkara -->
                                     <td>{{ $perkara->nama }}</td> <!-- Nama pihak yang mengajukan -->
                                     <td>{{ $perkara->alamat }}</td> <!-- Alamat pihak -->
                                     <td>{{ $perkara->nomor_telepon }}</td> <!-- Nomor telepon pihak -->
@@ -240,15 +242,15 @@
 
                                             <!-- Kolom Aksi -->
         <td>
-            {{-- <!-- Tombol Edit -->
-            <a href="{{ route('perkara.edit', $perkara->id) }}" class="btn btn-sm btn-warning">Edit</a>
+        <!-- Tombol Edit -->
+        <a href="{{ route('perkara.edit', $perkara->id) }}" class="btn btn-sm btn-warning">Edit</a>
 
-            <!-- Tombol Delete -->
-            <form action="{{ route('perkara.destroy', $perkara->id) }}" method="POST" style="display:inline;">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Delete</button>
-            </form> --}}
+        <!-- Tombol Delete -->
+        <form action="{{ route('perkara.destroy', $perkara->id) }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Delete</button>
+        </form>
 
             <!-- Tombol Cetak Akta Cerai -->
             <a href="{{ route('perkara.cetakAktaCerai', $perkara->id) }}" class="btn btn-sm btn-info">Cetak Akta Cerai</a>

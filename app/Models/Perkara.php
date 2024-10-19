@@ -16,6 +16,7 @@ class Perkara extends Model
     protected $fillable = [
         'tanggal',            // Tanggal perkara
         'nomor_perkara',      // Nomor perkara
+        'nomor_akta',      // Nomor perkara
         'nama',               // Nama pengaju perkara (bisa penggugat/pemohon)
         'alamat',             // Alamat pengaju
         'nomor_telepon',      // Nomor telepon pengaju

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use App\Models\Perkara;
+use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Http\Controllers\Controller;
 
 class PDFController extends Controller
 {
@@ -21,13 +22,20 @@ class PDFController extends Controller
         // return $pdf->stream('test.pdf');
         return $pdf->download('akta-cerai.pdf');
     }
-    public function salput ()
+    public function salput ($id)
     {
-        $perkara = Perkara::all();
+        // $perkara = Perkara::all();
+        $perkara = Perkara::FindOrFail($id);
         $pdf = Pdf::loadView('salinan-putusan', ['perkara' => $perkara]);
 
 
         // return $pdf->stream('test.pdf');
         return $pdf->download('salinan-putusan.pdf');
     }
+
+        // Contoh metode untuk memformat tanggal
+        public function formatTanggal($tanggal)
+        {
+            return Carbon::parse($tanggal)->format('d-F-Y');
+        }
 }

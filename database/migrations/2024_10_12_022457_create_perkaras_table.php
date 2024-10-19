@@ -12,6 +12,8 @@ class CreatePerkarasTable extends Migration
             $table->id(); // Primary key ID
             $table->date('tanggal'); // Tanggal perkara
             $table->string('nomor_perkara'); // Nomor perkara
+            // $table->string('nomor_akta');
+            $table->string('nomor_akta')->nullable();
             $table->string('nama'); // Nama pengaju (bisa Penggugat/Pemohon)
             $table->text('alamat'); // Alamat pengaju
             $table->string('nomor_telepon', 15); // Nomor telepon pengaju

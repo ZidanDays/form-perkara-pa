@@ -1,22 +1,51 @@
+
+                {{-- Format Tanggal --}}
+                @php
+                // Mengganti bulan dalam bahasa Indonesia
+                $bulanIndo = [
+                    'January' => 'Januari',
+                    'February' => 'Februari',
+                    'March' => 'Maret',
+                    'April' => 'April',
+                    'May' => 'Mei',
+                    'June' => 'Juni',
+                    'July' => 'Juli',
+                    'August' => 'Agustus',
+                    'September' => 'September',
+                    'October' => 'Oktober',
+                    'November' => 'November',
+                    'December' => 'Desember',
+                ];
+
+                // Format tanggal dan ganti nama bulan
+                $formattedDate = \Carbon\Carbon::parse($perkara->tanggal)->format('d-F-Y');
+                $formattedDate = str_replace(array_keys($bulanIndo), array_values($bulanIndo), $formattedDate);
+            @endphp
 <div class="container">
     <!-- Header Section -->
     <div class="header">
         <h3>FORMULIR PERMINTAAN AKTA CERAI</h3>
     </div>
 
-    @foreach ($perkara as $p)
-        
-
-    <!-- Detail Section -->
+    <!-- Menggunakan satu instance dari $perkara karena kita hanya ingin satu item -->
     <div class="details">
         <p>Permintaan Akta Cerai</p>
-        {{-- <p>Tanggal        : ...........................................</p> --}}
-        <p>Tanggal: {{ $p->tanggal ? $p->tanggal : '-' }}</p>
+        {{-- <p>Tanggal : {{ $perkara->tanggal ?? '-' }}</p> <!-- Menggunakan null coalescing operator -->
+        <p>Nomor Perkara: {{ $perkara->nomor_perkara ?? '-' }}</p> <!-- Menggunakan null coalescing operator --> --}}
 
-        <p>Nomor Perkara  : {{ $p->nomor_perkara ? $p->nomor_perkara : '-' }}</p>
+        <table class="no-border">
+            <tr>
+                <td>Tanggal</td>
+                <td>:</td>
+                <td>{{ $perkara->tanggal ?? '-' }}</td>
+            </tr>
+            <tr>
+                <td>Nomor Perkara</td>
+                <td>:</td>
+                <td>{{ $perkara->nomor_perkara ?? '-' }}</td>
+            </tr>
+        </table>
     </div>
-
-
 
     <div class="details">
         <p>Kami menyampaikan kepada Saudara/i:</p>
@@ -24,26 +53,25 @@
             <tr>
                 <td>Nama</td>
                 <td>:</td>
-                <td>{{ $p->nama ? $p->nama : '-' }}</td>
+                <td>{{ $perkara->nama ?? '-' }}</td>
             </tr>
             <tr>
                 <td>Alamat</td>
                 <td>:</td>
-                <td>{{ $p->alamat ? $p->alamat : '-' }}</td>
+                <td>{{ $perkara->alamat ?? '-' }}</td>
             </tr>
             <tr>
                 <td>No. Telepon</td>
                 <td>:</td>
-                <td>{{ $p->nomor_telepon ? $p->nomor_telepon : '-' }}</td>
+                <td>{{ $perkara->nomor_telepon ?? '-' }}</td>
             </tr>
             <tr>
                 <td>Sebagai Pihak</td>
                 <td>:</td>
-                <td>{{ $p->pihak ? $p->pihak : '-' }}</td>
+                <td>{{ $perkara->pihak ?? '-' }}</td>
             </tr>
         </table>
     </div>
-    
 
     <!-- Table Section -->
     <table>
@@ -72,16 +100,16 @@
             </tr>
         </tbody>
     </table>
-<br>
+
+    <br>
+
     <!-- Footer Section -->
     <div class="footer">
-        <p>Amurang, {{ $p->tanggal ? $p->tanggal : '-' }}</p>
+        <p>Amurang, {{ $formattedDate }}</p>
         <br>
         <br>
         <br>
         <br>
-        <p>{{ $p->nama ? $p->nama : '-' }}</p>
+        <p>{{ $perkara->nama ?? '-' }}</p>
     </div>
 </div>
-
-@endforeach

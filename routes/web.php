@@ -43,7 +43,6 @@ Route::get('/formulir-salinan-putusan/{id}', [PDFController::class, 'salput'])->
 
 
 
-// Route::get('/perkara/{id}/edit', [PerkaraController::class, 'edit'])->name('perkara.edit');
-// Route::delete('/perkara/{id}', [PerkaraController::class, 'destroy'])->name('perkara.destroy');
-// Route::get('/perkara/{id}/cetak-akta-cerai', [PerkaraController::class, 'cetakAktaCerai'])->name('perkara.cetakAktaCerai');
-// Route::get('/perkara/{id}/cetak-salput', [PerkaraController::class, 'cetakSalput'])->name('perkara.cetakSalput');
+Route::get('/perkara/{id}/edit', [FormsController::class, 'edit'])->name('perkara.edit');
+Route::put('/perkara/{id}', [FormsController::class, 'update'])->name('perkara.update');
+Route::delete('/perkara/{id}', [FormsController::class, 'destroy'])->name('perkara.destroy');

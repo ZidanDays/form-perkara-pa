@@ -52,6 +52,14 @@
                                     </div>
                                 </div>
 
+                                <!-- Nomor akta -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="nomor_akta">Nomor Akta</label>
+                                        <input type="text" class="form-control" id="nomor_akta" name="nomor_akta" placeholder="Masukkan akta cerai" required>
+                                    </div>
+                                </div>
+
                                 <!-- Nama -->
                                 <div class="col-md-6">
                                     <div class="form-group">
