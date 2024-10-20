@@ -69,6 +69,24 @@
                                     <option value="lainnya" {{ $perkara->pihak == 'lainnya' ? 'selected' : '' }}>Lainnya</option>
                                 </select>
                             </div>
+
+                                                        <!-- Input Nama Penggugat -->
+                                                        <div class="form-group">
+                                                            <label for="nama_penggugat">Nama Penggugat</label>
+                                                            <input type="text" name="nama_penggugat" id="nama_penggugat" value="{{ $perkara->nama_penggugat }}" class="form-control" required>
+                                                        </div>
+
+                                                                                    <!-- Input Nomor Telepon -->
+                            <div class="form-group">
+                                <label for="nama_tergugat">Nama Tergugat</label>
+                                <input type="text" name="nama_tergugat" id="nama_tergugat" value="{{ $perkara->nama_tergugat }}" class="form-control" required>
+                            </div>
+
+                                                        <!-- Input Nomor Telepon -->
+                                                        <div class="form-group">
+                                                            <label for="nama_ketua_majelis">Nama Ketua Majelis</label>
+                                                            <input type="text" name="nama_ketua_majelis" id="nama_ketua_majelis" value="{{ $perkara->nama_ketua_majelis }}" class="form-control" required>
+                                                        </div>
                         
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary">Update Perkara</button>

@@ -88,15 +88,15 @@
 <body>
 
 <!-- Halaman 1 -->
-@include('pdf.form-permintaan-cerai')
+{{-- @include('pdf.form-permintaan-cerai') --}}
 <!-- end of Halaman 1 -->
 
 <!-- Halaman 2 -->
-@include('pdf.2')
+{{-- @include('pdf.2') --}}
 <!-- end of Halaman 2 -->
 
 <!-- Halaman 3 -->
-@include('pdf.3')
+{{-- @include('pdf.3') --}}
 <!-- end of Halaman 3 -->
 
 <!-- Halaman 4 -->

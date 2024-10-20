@@ -100,19 +100,19 @@
 <!-- end of Halaman 3 -->
 
 <!-- Halaman 4 -->
-@include('pdf.4')
+{{-- @include('pdf.4') --}}
 <!-- end of Halaman 4 -->
 
 <!-- Halaman 5 -->
-@include('pdf.5')
+{{-- @include('pdf.5') --}}
 <!-- end of Halaman 5 -->
 
 <!-- Halaman 6 -->
-@include('pdf.6')
+{{-- @include('pdf.6') --}}
 <!-- end of Halaman 6 -->
 
 <!-- Halaman 7 -->
-@include('pdf.7')
+{{-- @include('pdf.7') --}}
 <!-- end of Halaman 7 -->
 
 </body>

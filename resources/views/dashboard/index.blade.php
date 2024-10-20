@@ -241,23 +241,23 @@
                                     <td>{{ $perkara->nama_ketua_majelis ?? '-' }}</td> <!-- Nama ketua majelis, jika ada -->
 
                                             <!-- Kolom Aksi -->
-        <td>
-        <!-- Tombol Edit -->
-        <a href="{{ route('perkara.edit', $perkara->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <td>
+                                    <!-- Tombol Edit -->
+                                    <a href="{{ route('perkara.edit', $perkara->id) }}" class="btn btn-sm btn-warning">Edit</a>
 
-        <!-- Tombol Delete -->
-        <form action="{{ route('perkara.destroy', $perkara->id) }}" method="POST" style="display:inline;">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Delete</button>
-        </form>
+                                    <!-- Tombol Delete -->
+                                    <form action="{{ route('perkara.destroy', $perkara->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Delete</button>
+                                    </form>
 
-            <!-- Tombol Cetak Akta Cerai -->
-            <a href="{{ route('perkara.cetakAktaCerai', $perkara->id) }}" class="btn btn-sm btn-info">Cetak Akta Cerai</a>
+                                        <!-- Tombol Cetak Akta Cerai -->
+                                        <a href="{{ route('perkara.cetakAktaCerai', $perkara->id) }}" class="btn btn-sm btn-info">Cetak Akta Cerai</a>
 
-            <!-- Tombol Cetak Salinan Putusan -->
-            <a href="{{ route('perkara.cetakSalinanPutusan', $perkara->id) }}" class="btn btn-sm btn-success">Cetak Salinan Putusan</a>
-        </td>
+                                        <!-- Tombol Cetak Salinan Putusan -->
+                                        <a href="{{ route('perkara.cetakSalinanPutusan', $perkara->id) }}" class="btn btn-sm btn-success">Cetak Salinan Putusan</a>
+                                    </td>
                                 </tr>
                             @endforeach
                             

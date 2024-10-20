@@ -21,7 +21,8 @@
                 $formattedDate = \Carbon\Carbon::parse($perkara->tanggal)->format('d-F-Y');
                 $formattedDate = str_replace(array_keys($bulanIndo), array_values($bulanIndo), $formattedDate);
             @endphp
-<div class="container" style="page-break-before: always;">   
+{{-- <div class="container" style="page-break-before: always;">    --}}
+<div class="container">   
     <div class="container">
     <!-- Header Section -->
     <div class="header">
